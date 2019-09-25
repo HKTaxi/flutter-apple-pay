@@ -53,6 +53,14 @@ class FlutterApplePay {
       throw Exception("Not supported operation system");
     }
   }
+
+  static Future<bool> canMakePayments() async {
+    if (Platform.isIOS) {
+      return await _channel.invokeMethod('canMakePayments');
+    } else {
+      throw Exception("Not supported operation system");
+    }
+  }
 }
 
 class PaymentItem {
@@ -82,3 +90,4 @@ enum PaymentNetwork {
   interac,
   privateLabel
 }
+

@@ -80,7 +80,11 @@ public class SwiftFlutterApplePayPlugin: NSObject, FlutterPlugin, PKPaymentAutho
         }
         else if call.method == "closeApplePaySheetWithError" {
             closeApplePaySheetWithError()
-        }  else {
+        }
+        else if call.method == "canMakePayments" {
+            result(PKPaymentAuthorizationViewController.canMakePayments())
+        }
+        else {
             result("Flutter method not implemented on iOS")
         }
     }
@@ -258,4 +262,5 @@ extension UIWindow {
         }
     }
 }
+
 
