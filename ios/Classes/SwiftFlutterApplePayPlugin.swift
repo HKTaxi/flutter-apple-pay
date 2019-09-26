@@ -4,7 +4,7 @@ import Foundation
 import PassKit
 // import Stripe
 
-typealias AuthorizationCompletion = (_ payment: String) -> Void
+typealias AuthorizationCompletion = (_ payment: PKPayment) -> Void
 typealias AuthorizationViewControllerDidFinish = (_ error : NSDictionary) -> Void
 typealias CompletionHandler = (PKPaymentAuthorizationStatus) -> Void
 
