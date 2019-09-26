@@ -92,7 +92,7 @@ public class SwiftFlutterApplePayPlugin: NSObject, FlutterPlugin, PKPaymentAutho
     func authorizationCompletion(_ payment: PKPayment) {
         // success
         var result: [String: Any] = [:]
-        result["pk_token"] = payment.token.paymentData
+        result["pk_token"] = String(data: payment.token.paymentData, encoding: String.Encoding.utf8)
         result["pk_token_instrument_name"] = payment.token.paymentMethod.displayName
         result["pk_token_payment_network"] = payment.token.paymentMethod.network
         result["pk_token_transaction_id"] = payment.token.transactionIdentifier
