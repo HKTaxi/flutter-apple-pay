@@ -211,8 +211,8 @@ public class SwiftFlutterApplePayPlugin: NSObject, FlutterPlugin, PKPaymentAutho
             return
         }
         currentViewController.dismiss(animated: true, completion: nil)
-        let error: NSDictionary = ["message": "User closed apple pay", "code": "400"]
-        authorizationViewControllerDidFinish(error)
+        // let error: NSDictionary = ["message": "User closed apple pay", "code": "400"]
+        // authorizationViewControllerDidFinish(error)
     }
     
     func makePaymentSummaryItems(itemsParameters: Array<Dictionary <String, Any>>) -> [PKPaymentSummaryItem]? {
