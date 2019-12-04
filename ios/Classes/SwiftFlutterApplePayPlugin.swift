@@ -45,13 +45,14 @@ public class SwiftFlutterApplePayPlugin: NSObject, FlutterPlugin, PKPaymentAutho
                 
                 totalPrice += price
                 
-                items.append(PKPaymentSummaryItem(label: label, amount: NSDecimalNumber(floatLiteral: price), type: type))
+                // items.append(PKPaymentSummaryItem(label: label, amount: NSDecimalNumber(floatLiteral: price), type: type))
+                items.append(PKPaymentSummaryItem(label: label, amount: NSDecimalNumber(floatLiteral: price)))
             }
             
             // Stripe.setDefaultPublishableKey(stripePublishedKey)
             
-            let total = PKPaymentSummaryItem(label: "Total", amount: NSDecimalNumber(floatLiteral:totalPrice), type: .final)
-            items.append(total)
+            // let total = PKPaymentSummaryItem(label: "Total", amount: NSDecimalNumber(floatLiteral:totalPrice), type: .final)
+            // items.append(total)
             
             paymentNeworks.forEach {
                 
