@@ -21,14 +21,14 @@ class _MyAppState extends State<MyApp> {
     dynamic platformVersion;
     PaymentItem paymentItems = PaymentItem(label: 'Label', amount: 51.0);
     try {
-      platformVersion = await FlutterApplePay.makePayment(
-        countryCode: "US",
-        currencyCode: "USD",
-        paymentNetworks: [PaymentNetwork.visa, PaymentNetwork.mastercard],
-        merchantIdentifier: "merchant.stripeApplePayTest",
-        paymentItems: [paymentItems],
-        stripePublishedKey: "pk_test_TYooMQauvdEDq54NiTphI7jx"
-      );
+      // platformVersion = await FlutterApplePay.makePayment(
+      //   countryCode: "US",
+      //   currencyCode: "USD",
+      //   paymentNetworks: [PaymentNetwork.visa, PaymentNetwork.mastercard],
+      //   merchantIdentifier: "merchant.stripeApplePayTest",
+      //   paymentItems: [paymentItems],
+      //   stripePublishedKey: "pk_test_TYooMQauvdEDq54NiTphI7jx"
+      // );
       print(platformVersion);
     } on PlatformException {
       platformVersion = 'Failed to get platform version.';
