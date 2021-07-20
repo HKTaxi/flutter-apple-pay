@@ -9,11 +9,11 @@ class FlutterApplePay {
       const MethodChannel('flutter_apple_pay');
 
   static Future<dynamic> getStripeToken({
-    @required String countryCode,
-    @required String currencyCode,
-    @required List<PaymentNetwork> paymentNetworks,
-    @required String merchantIdentifier,
-    @required List<PaymentItem> paymentItems,
+    required String countryCode,
+    required String currencyCode,
+    required List<PaymentNetwork> paymentNetworks,
+    required String merchantIdentifier,
+    required List<PaymentItem> paymentItems,
     // @required String stripePublishedKey,
   }) async {
     assert(countryCode != null);
@@ -23,7 +23,7 @@ class FlutterApplePay {
     assert(paymentItems != null);
     // assert(stripePublishedKey != null);
 
-    final Map<String, Object> args = <String, dynamic>{
+    final Map<String, dynamic> args = <String, dynamic>{
       'paymentNetworks':
           paymentNetworks.map((item) => item.toString().split('.')[1]).toList(),
       'countryCode': countryCode,
@@ -41,7 +41,7 @@ class FlutterApplePay {
     }
   }
 
-  static Future<void> closeApplePaySheet({@required bool isSuccess}) async {
+  static Future<void> closeApplePaySheet({required bool isSuccess}) async {
     if (Platform.isIOS) {
       if(isSuccess) {
         await _channel.invokeMethod('closeApplePaySheetWithSuccess');
@@ -54,7 +54,7 @@ class FlutterApplePay {
     }
   }
 
-  static Future<bool> canMakePayments() async {
+  static Future<bool?> canMakePayments() async {
     if (Platform.isIOS) {
       return await _channel.invokeMethod('canMakePayments');
     } else {
@@ -67,7 +67,7 @@ class PaymentItem {
   final String label;
   final double amount;
 
-  PaymentItem({@required this.label, @required this.amount}) {
+  PaymentItem({required this.label, required this.amount}) {
     assert(this.label != null);
     assert(this.amount != null);
   }
